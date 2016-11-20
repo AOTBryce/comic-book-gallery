@@ -1,9 +1,10 @@
 ﻿@{
-    Layout = null;
-
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Comic Book Detail";
 }
 
-<!DOCTYPE html>
+@*everything below is not needed because it exsists in the Layout page. I left it as a comment though for clarity*@
+@*<!DOCTYPE html>
 
 <html>
 <head>
@@ -11,7 +12,7 @@
     <title></title>
 </head>
 <body>
-    <div>
+    <div>*@
     <h1>@ViewBag.SeriesTitle</h1>
         <h2>Issue #@ViewBag.IssueNumber</h2>
         <h5>Description</h5>
@@ -31,6 +32,8 @@
                 </ul>
         </div>
         }
-    </div>
+
+        @*Commented out for same reason as above*@
+    @*</div>
 </body>
-</html>
+</html>*@
