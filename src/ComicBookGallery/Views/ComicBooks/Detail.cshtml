@@ -15,25 +15,62 @@
 </head>
 <body>
     <div>*@
-    <h1>@Model.SeriesTitle</h1>
-        <h2>Issue #@Model.IssueNumber</h2>
+
+
+<h2>@Model.DisplayText</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="well">
+            <h5><label>Series Title:</label> @Model.SeriesTitle</h5>
+            <h5><label>Issue #:</label> @Model.IssueNumber</h5>
+            <h5><label>Favorite:</label> @(Model.favorite ? "yes" : "No")</h5>
+            @if (Model.Artists.Length > 0)
+            {
+                <h5>Artists:</h5>
+                        <div>
+
+                            <ul>
+                                @foreach (var artist in Model.Artists)
+                                {
+                                    <li>@artist.role: @artist.name</li>
+
+                                }
+                            </ul>
+                        </div>
+            }
+        </div>
         <h5>Description</h5>
         <div>@Html.Raw(Model.DescriptionHTML)</div>
+    </div>
+    <div class="col-md-6">
+        <img src="/Images/@Model.CoverImageFileName"
+             alt=Model.DisplayText class="img-responsive" />
+    </div>
+</div>
 
-        @if(Model.Artists.Length > 0)
-        {
-            <h5>Artists:</h5>
-            <div>
-            
-                <ul>
-                    @foreach(var artist in Model.Artists)
-            {
-                <li>@artist.role: @artist.name</li>
 
-            }
-                </ul>
-        </div>
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*old markup*@
+    <h1>@Model.SeriesTitle</h1>
+        <h2>Issue #@Model.IssueNumber</h2>
+        
+
+        
 
         @*Commented out for same reason as above*@
     @*</div>
